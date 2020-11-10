@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"math"
+	"strings"
 	"time"
 )
 
@@ -117,7 +118,13 @@ func genRegExp(startTime *time.Time, endTime *time.Time) (*string, error) {
 	}
 
 	regexp := fmt.Sprintf("%v/%v/%v %v:%v:%v", *yearPart, *monthPart, *dayPart, *hourPart, *minutePart, *secondPart)
+	regexp = simplify(regexp)
+
 	return &regexp, nil
+}
+
+func simplify(regexp string) string {
+	return strings.Replace(regexp, "[0-9]", "\\d", -1)
 }
 
 func genRegExpYear(startYear int, endYear int) (*string, error) {
