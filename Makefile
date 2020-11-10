@@ -1,7 +1,8 @@
 .PHONY: all
-all:
-	go build ./cmd/tt
+all: clean
+	mkdir dist
+	go build -o dist/tt ./cmd/tt
 
 .PHONY: clean
 clean:
-	rm -f tt
+	rm -rf dist
