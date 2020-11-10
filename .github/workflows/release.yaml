@@ -11,11 +11,13 @@ jobs:
     strategy:
       matrix:
         goos: [linux, windows, darwin]
+        goarch: [amd64]
     steps:
       - uses: actions/checkout@v2
       - uses: wangyoucao577/go-release-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           goos: ${{ matrix.goos }}
+          goarch: ${{ matrix.goarch }}
           project_path: "./cmd/tt"
           binary_name: "tt"
