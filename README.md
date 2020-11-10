@@ -1,5 +1,5 @@
 # tt
-Convert time range to regexp
+Convert time range to regexp. **still buggy**
 
 ## Installation
 ### go get
