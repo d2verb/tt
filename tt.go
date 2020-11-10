@@ -70,7 +70,7 @@ func parseTime(timeStr string) (*time.Time, error) {
 		return nil, err
 	}
 
-	layout := "2006/01/02 15:04:05"
+	layout := "2006-01-02 15:04:05"
 
 	t, err := time.ParseInLocation(layout, timeStr, jst)
 	if err != nil {
@@ -117,7 +117,7 @@ func genRegExp(startTime *time.Time, endTime *time.Time) (*string, error) {
 		return nil, err
 	}
 
-	regexp := fmt.Sprintf("%v/%v/%v %v:%v:%v", *yearPart, *monthPart, *dayPart, *hourPart, *minutePart, *secondPart)
+	regexp := fmt.Sprintf("%v-%v-%v %v:%v:%v", *yearPart, *monthPart, *dayPart, *hourPart, *minutePart, *secondPart)
 	regexp = simplify(regexp)
 
 	return &regexp, nil
